@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Counter Settings</title>
+    <script>
+        let websocket;
+        let uuid;
+        
+        function connectElgatoStreamDeckSocket(inPort, inPropertyInspectorUUID, inRegisterEvent, inInfo, inActionInfo) {
+            uuid = inPropertyInspectorUUID;
+            
+            websocket = new WebSocket('ws://localhost:' + inPort);
+            
+            websocket.onopen = function () {
+                const json = {
+                    'event': inRegisterEvent,
+                    'uuid': inPropertyInspectorUUID
+                };
+                websocket.send(JSON.stringify(json));
+            };
+            
+            websocket.onmessage = function (evt) {
+                // Handle messages if needed
+            };
+        }
+        
+        function resetCounter() {
+            if (websocket) {
+                const json = {
+                    'event': 'sendToPlugin',
+                    'context': uuid,
+                    'payload': {
+                        'reset': true
+                    }
+                };
+                websocket.send(JSON.stringify(json));
+            }
+        }
+    </script>
+</head>
+<body>
+    <div style="padding: 10px;">
+        <h3>Counter Plugin</h3>
+        <p>Click the button to increment the counter.</p>
+        <button onclick="resetCounter()" style="margin-top: 10px;">Reset Counter</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "Actions": [
+    {
+      "Icon": "images/actionIcon",
+      "Name": "Counter",
+      "States": [
+        {
+          "Image": "images/actionIcon",
+          "TitleAlignment": "middle",
+          "FontSize": "16",
+          "TitleColor": "#FFFFFF"
+        }
+      ],
+      "Controllers": ["Keypad"],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Simple counter that increments on click",
+      "UUID": "com.yourname.counter.action"
+    }
+  ],
+  "SDKVersion": 2,
+  "Author": "Your Name",
+  "CodePath": "CounterPlugin.exe",
+  "Description": "Simple counter plugin",
+  "Name": "Counter Plugin",
+  "Icon": "images/pluginIcon",
+  "Version": "1.0.0",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Software": {
+    "MinimumVersion": "5.0"
+  }
+}
