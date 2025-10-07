@@ -3,15 +3,10 @@ dotnet build
 dotnet publish -c Release -r win-x64
 
 com.yourname.counter.sdPlugin/
-
 ├── manifest.json
-
 ├── CounterPlugin.exe
-
 └── images/
-
-    ├── pluginIcon.png
-    
+    ├── pluginIcon.png    
     └── actionIcon.png
 
 Placement:
